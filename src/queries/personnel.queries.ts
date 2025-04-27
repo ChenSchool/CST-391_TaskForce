@@ -1,3 +1,4 @@
+
 export const personnelQueries = {
   getAll: 'SELECT * FROM personnel',
   getById: 'SELECT * FROM personnel WHERE id = ?',

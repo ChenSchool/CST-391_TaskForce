@@ -1,15 +1,14 @@
 import { Request, Response, NextFunction } from 'express';
 import { v4 as uuidv4 } from 'uuid';
-//import chalk from 'chalk';
 
 const getProcessingTimeInMs = (time: [number, number]): string => {
     return `${(time[0] * 1000 + time[1]/ 1e6).toFixed(2)}ms`
 } 
 
 /***
- * add logs for an API endpoint using the following pattern
- * [id][timestamp] method:url START processing
- * [id][timestamp] method:url response.statusCode END processing
+ * Logger middleware for Express.js
+ * This middleware logs the request and response details, including the processing time.
+ * It generates a unique identifier for each request and logs the start and end times.
  * 
  * @param req Express.Request
  * @param res Express.Response

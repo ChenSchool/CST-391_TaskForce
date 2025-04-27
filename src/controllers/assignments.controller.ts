@@ -3,6 +3,7 @@ import { Assignment } from "../models/assignments.model";
 import * as AssignmentDao from "../dao/assignments.dao";
 import { OkPacket } from "mysql";
 
+// This controller handles the CRUD operations for assignments
 export const getAll: RequestHandler = async (req: Request, res: Response) => {
   try {
     const assignments = await AssignmentDao.getAllAssignments();
@@ -11,7 +12,7 @@ export const getAll: RequestHandler = async (req: Request, res: Response) => {
     console.error("[assignments.controller][GetAllAssignments][Error]", error);
     res.status(500).json({ error: "Failed to fetch assignments" });
   }
-};
+}; // Get all assignments
 
 export const getById: RequestHandler = async (req: Request, res: Response): Promise<void> => {
   try {
@@ -28,7 +29,7 @@ export const getById: RequestHandler = async (req: Request, res: Response): Prom
     console.error("[assignments.controller][GetAssignmentById][Error]", error);
     res.status(500).json({ error: "Failed to fetch assignment" });
   }
-};
+}; // Get assignment by id
 
 export const create: RequestHandler = async (req: Request, res: Response): Promise<void> => {
   try {
@@ -40,7 +41,7 @@ export const create: RequestHandler = async (req: Request, res: Response): Promi
     console.error("[assignments.controller][CreateAssignment][Error]", error);
     res.status(500).json({ error: "Failed to create assignment" });
   }
-};
+}; // Create new assignment
 
 export const update: RequestHandler = async (req: Request, res: Response): Promise<void> => {
   try {
@@ -58,7 +59,7 @@ export const update: RequestHandler = async (req: Request, res: Response): Promi
     console.error("[assignments.controller][UpdateAssignment][Error]", error);
     res.status(500).json({ error: "Failed to update assignment" });
   }
-};
+}; // Update assignment by id
 
 export const remove: RequestHandler = async (req: Request, res: Response): Promise<void> => {
   try {
@@ -75,5 +76,5 @@ export const remove: RequestHandler = async (req: Request, res: Response): Promi
     console.error("[assignments.controller][DeleteAssignment][Error]", error);
     res.status(500).json({ error: "Failed to delete assignment" });
   }
-};
+}; // Delete assignment by id
 

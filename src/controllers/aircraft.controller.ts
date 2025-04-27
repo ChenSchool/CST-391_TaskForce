@@ -2,6 +2,8 @@ import { Request, RequestHandler, Response } from "express";
 import * as AircraftDao from "../dao/aircraft.dao";
 import { Aircraft } from "../models/aircraft.model";
 
+// controller for aircraft
+// This controller handles the CRUD operations for aircraft
 export const getAll: RequestHandler = async (req: Request, res: Response) => { 
   try {
     const aircraft = await AircraftDao.getAllAircraft();
@@ -11,7 +13,7 @@ export const getAll: RequestHandler = async (req: Request, res: Response) => {
     console.error("[aircraft.controller][GetAircraft][Error]", error);
     res.status(500).json({ error: "Failed to fetch aircraft" });
   }
-}
+} // Get all aircraft
 
 export const getById: RequestHandler = async (req: Request, res: Response): Promise<void> => {
   try {
@@ -28,7 +30,7 @@ export const getById: RequestHandler = async (req: Request, res: Response): Prom
     console.error("[aircraft.controller][GetAircraftById][Error]", error);
     res.status(500).json({ error: "Failed to fetch aircraft" });
   }
-}
+} // Get aircraft by id
 
 export const create: RequestHandler = async (req: Request, res: Response): Promise<void> => {
   try {
@@ -40,7 +42,7 @@ export const create: RequestHandler = async (req: Request, res: Response): Promi
     console.error("[aircraft.controller][CreateAircraft][Error]", error);
     res.status(500).json({ error: "Failed to create aircraft" });
   }
-}
+} // Create new aircraft
 
 export const update: RequestHandler = async (req: Request, res: Response): Promise<void> => {
   try {
@@ -58,7 +60,7 @@ export const update: RequestHandler = async (req: Request, res: Response): Promi
     console.error("[aircraft.controller][UpdateAircraft][Error]", error);
     res.status(500).json({ error: "Failed to update aircraft" });
   }
-}
+} // Update aircraft by id
 
 export const remove: RequestHandler = async (req: Request, res: Response): Promise<void> => {
   try {
@@ -75,4 +77,4 @@ export const remove: RequestHandler = async (req: Request, res: Response): Promi
     console.error("[aircraft.controller][DeleteAircraft][Error]", error);
     res.status(500).json({ error: "Failed to delete aircraft" });
   }
-}
+} // Delete aircraft by id
